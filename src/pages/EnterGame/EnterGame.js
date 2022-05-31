@@ -1,15 +1,24 @@
+import { useState } from 'react';
+
 import styles from './EnterGame.module.scss'
 import MyButton from '../../components/global/MyButton/MyButton';
 
 function EnterGame()
 {
+    
+    const [gamePIN, setGamePIN] = useState('');
+
+    function handleInputGamePIN(value)
+    {
+        setGamePIN(value);
+    }
+
     return (
         <div className={styles.enterGameContainer}>
             <div className={styles.header}>
-                <button>EN</button>
                 <MyButton
-                            text='Enter'
-                            size='medium'
+                            text='Languague'
+                            size='small'
                             color='blue'
                         />
             </div>
@@ -17,12 +26,12 @@ function EnterGame()
             <div className={styles.content}>
                 <img src='https://assets-cdn.kahoot.it/controller/v2/assets/icn_kahoot_logo.58b66a21.svg'></img>
                 <form action='#'>
-                    <input type='text' placeholder='Game PIN'></input>
+                    <input type='text' placeholder='Game PIN' value={gamePIN} onChange={e => handleInputGamePIN(e.target.value)}></input>
                     <div>
                         <MyButton
                             text='Enter'
                             size='medium'
-                            color='blue'
+                            color='black'
                         />
                     </div>
                     
