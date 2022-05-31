@@ -9,14 +9,30 @@
 }
 
 //Button size
+.small {
+    min-width: 64px;
+    height: 32px;
+    padding: 8px 16px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 2px solid #000;
+    &:hover{
+        height: 30px;
+        margin-top: 2px;
+    }
+}
+
 .medium {
-    width: 300px;
+    min-width: 96px;
     height: 48px;
     padding: 0px 16px;
     border-radius: 4px;
     display: flex;
     justify-content: center;
     align-items: center;
+    border-bottom: 4px solid #000;
     &:hover{
         height: 44px;
         margin-top: 4px;
@@ -34,8 +50,32 @@
 
 .green {
     background-color: #008000;
-    border-bottom: 4px solid #006400;
+    border-color: #006400;
     &:hover {
         background-color: #006400;
+    }
+}
+
+.blue {
+    background-color: #1368CE;
+    border-color: #00008B;
+    &:hover {
+        background-color: #00008B;
+    }
+}
+
+.red {
+    background-color: #ce1313;
+    border-color: #8b0000;
+    &:hover {
+        background-color: #8b0000;
+    }
+}
+
+.yellow {
+    background-color: #FFCC00;
+    border-color:  #F7BD01;
+    &:hover {
+        background-color:#F7BD01;
     }
 }

@@ -7,6 +7,11 @@ function EnterGame()
         <div className={styles.enterGameContainer}>
             <div className={styles.header}>
                 <button>EN</button>
+                <MyButton
+                            text='Enter'
+                            size='medium'
+                            color='blue'
+                        />
             </div>
 
             <div className={styles.content}>
@@ -17,7 +22,7 @@ function EnterGame()
                         <MyButton
                             text='Enter'
                             size='medium'
-                            color='black'
+                            color='blue'
                         />
                     </div>
                     
