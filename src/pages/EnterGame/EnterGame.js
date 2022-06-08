@@ -17,10 +17,10 @@ function EnterGame()
         <div className={styles.enterGameContainer}>
             <div className={styles.header}>
                 <MyButton
-                            text='Languague'
-                            size='small'
-                            color='blue'
-                        />
+                    text='Languague'
+                    size='medium'
+                    color='red'
+                />
             </div>
 
             <div className={styles.content}>
