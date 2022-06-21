@@ -1,11 +1,11 @@
 import styles from './App.module.scss';
-import MyButton from './components/global/MyButton/MyButton';
 import EnterGame from './pages/EnterGame/EnterGame';
+import AuthPage from './pages/auth/AuthPage';
 
 function App() {
   return (
     <div className={styles.App}>
-      <EnterGame/>
+      <AuthPage/>
     </div>
   );
 }

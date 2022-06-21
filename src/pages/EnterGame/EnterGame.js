@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import styles from './EnterGame.module.scss'
-import MyButton from '../../components/global/MyButton/MyButton';
+import MyButton from '../../components/MyButton/MyButton';
 
 function EnterGame()
 {

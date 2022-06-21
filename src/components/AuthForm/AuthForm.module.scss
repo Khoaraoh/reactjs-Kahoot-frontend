@@ -1,0 +1,50 @@
+.authFormContainer {
+    display: flex;
+    flex-direction: column;
+    width: 420px;
+    min-height: 400px;
+    padding: 24px;
+    background-color: #fff;
+    font-size: 0.875rem;
+    border-radius: 4px;
+    .title{
+        margin: 16px 0px;
+        text-align: center;
+    }
+
+    .mainFormContainer{
+        display: flex;
+        flex-direction: column;
+        margin: 24px 0px;
+        font-size: 0.875rem;
+        label{
+            font-weight: bold;
+        }
+        input {
+            height: 48px;
+            padding: 4px 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            &:focus{
+                border-color: #89B3E6;
+            }
+        }
+        .button{
+            margin-top: 8px;
+        }
+    }
+
+    .footer{
+        display: flex;
+        flex-direction: row;
+        align-self: center;
+        a{
+            color: #1368CE;
+            text-decoration: underline;
+            &:hover{
+                cursor: pointer;
+            }
+        }
+    }
+}
