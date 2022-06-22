@@ -34,6 +34,8 @@ function MyButton(props)
         case 'yellow':
             myClassName += ` ${styles.yellow}`;
             break;
+        case 'gray':
+            myClassName += ` ${styles.gray}`;
         default:
             myClassName += ` ${styles.black}`;
     }

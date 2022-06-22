@@ -80,3 +80,14 @@
         background-color:#F7BD01;
     }
 }
+
+.gray {
+    background-color: #F2F2F2;
+    border-color:  #DFDFDF;
+    &:hover {
+        background-color:#DFDFDF;
+    }
+    p{
+        color: #000
+    }
+}
