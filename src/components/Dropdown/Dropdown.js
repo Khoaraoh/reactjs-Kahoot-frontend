@@ -17,10 +17,32 @@ export default function SelectSmall({type}) {
     case "questionType":
         listItem = [
             "Quiz",
-            "True or False",
-            "Type Answer",
-            "Slider",
-            "Puzzle"
+            "True or False"
+        ]
+        break;
+    case "timeLimit":
+        listItem = [
+          "5 seconds",
+          "10 seconds",
+          "20 seconds",
+          "30 seconds",
+          "1 minute",
+          "1 minute 30 seconds",
+          "2 minutes",
+          "4 minutes"
+        ]
+        break;
+    case "pointSelection":
+        listItem = [
+          "Standard",
+          "Double points",
+          "No point"
+        ]
+        break;
+    case "answerOptions":
+        listItem = [
+          "Single select",
+          "Multi-select"
         ]
         break;
     default:

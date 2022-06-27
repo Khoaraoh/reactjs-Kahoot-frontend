@@ -2,15 +2,29 @@ import { useReducer } from "react";
 import MyButton from "../../components/MyButton/MyButton";
 import MultipleSelect from "../../components/Dropdown/Dropdown";
 import {BsQuestionSquare} from 'react-icons/bs'
+import {RiAddBoxFill} from 'react-icons/ri'
+import {IoTimeOutline} from 'react-icons/io5'
 
 import styles from "./CreateGame.module.scss";
 
 const initQuestionList = [
     {
         id: 1,
-        question: "question",
+        //Type 1 = Quiz
+        type: 1,
+        question: "",
         media: "",
-        answers: ["A1", "A2", "A3", "A4"],
+        answers: ["", "", "", ""],
+        selected: false
+    },
+    {
+        id: 2,
+        //Type 2 = True or false
+        question: "Question 2",
+        type: 2,
+        media: "",
+        answers: ["", "", "", ""],
+        selected: true
     }
 ];
 
@@ -64,11 +78,41 @@ function CreateGame()
 
             <div className={styles.body}>
                 <div className={styles.leftBody}>
-
+                {questionList.map((questionItem) => (
+                    questionItem.selected ? (
+                        <div className={`${styles.questionSelector} ${styles.selected}`}>
+                            <div className={styles.title}>
+                                {questionItem.type === 1&&
+                                    <label>{questionItem.id} Quiz</label>
+                                }
+                                {questionItem.type === 2&&
+                                    <label>{questionItem.id} True or False</label>
+                                }
+                            </div>
+                            <div className={styles.content}>
+                                
+                            </div>
+                        </div>
+                    ):(
+                        <div className={styles.questionSelector}>
+                            <div className={styles.title}>
+                                {questionItem.type === 1&&
+                                    <label>{questionItem.id} Quiz</label>
+                                }
+                                {questionItem.type === 2&&
+                                    <label>{questionItem.id} True or False</label>
+                                }
+                            </div>
+                            <div className={styles.content}>
+                                
+                            </div>
+                        </div>
+                    )
+                ))}
                 </div>
 
                 <div className={styles.centerBody}>
-                    {questionList.map((questionItem) => (
+                    {questionList.map((questionItem) => questionItem.selected&&(
                         <div className={styles.questionItem}>
                             <div className={styles.questionTitle}>
                                 <input type="text" placeholder="Start typing your question" value={questionItem.question}></input>
@@ -76,6 +120,7 @@ function CreateGame()
 
                             <div className={styles.mediaContainer}>
                                 <div className={styles.media}>
+                                    <RiAddBoxFill/>
                                     <p>Insert media</p>
                                 </div>
                             </div>
@@ -83,20 +128,24 @@ function CreateGame()
                             <div className={styles.answerContainer}>
                                 <div className={styles.answerLine}>
                                     <div className={styles.answerBox}>
+                                        <div className={styles.redRectangle}></div>
                                         <input type="text" placeholder="Add answer 1" value={questionItem.answers[0]}></input>
                                     </div>
 
                                     <div className={styles.answerBox}>
+                                        <div className={styles.blueRectangle}></div>
                                         <input type="text" placeholder="Add answer 2" value={questionItem.answers[1]}></input>
                                     </div>
                                 </div>
                                 
                                 <div className={styles.answerLine}>
                                     <div className={styles.answerBox}>
+                                        <div className={styles.yellowRectangle}></div>
                                         <input type="text" placeholder="Add answer 3 (optional)" value={questionItem.answers[2]}></input>
                                     </div>
 
                                     <div className={styles.answerBox}>
+                                        <div className={styles.greenRectangle}></div>
                                         <input type="text" placeholder="Add answer 4 (optional)" value={questionItem.answers[3]}></input>
                                     </div>
                                 </div>
@@ -106,11 +155,34 @@ function CreateGame()
                 </div>
 
                 <div className={styles.rightBody}>
-                    <div className={styles.questionType}>
-                        <BsQuestionSquare/>
-                        <label>Question type</label>
+                    <div className={styles.rightBodyItem}>
+                        <div className={styles.selector}>
+                            <BsQuestionSquare/>
+                            <label>Question type</label>
+                        </div>
+                        <MultipleSelect className={styles.dropdown} type="questionType"/>
                     </div>
-                    <MultipleSelect className={styles.dropdown} type="questionType"/>
+                    <div className={styles.rightBodyItem}>
+                        <div className={styles.selector}>
+                            <IoTimeOutline/>
+                            <label>Time limit</label>
+                        </div>
+                        <MultipleSelect className={styles.dropdown} type="timeLimit"/>
+                    </div>
+                    <div className={styles.rightBodyItem}>
+                        <div className={styles.selector}>
+                            <IoTimeOutline/>
+                            <label>Point</label>
+                        </div>
+                        <MultipleSelect className={styles.dropdown} type="pointSelection"/>
+                    </div>
+                    <div className={styles.rightBodyItem}>
+                        <div className={styles.selector}>
+                            <IoTimeOutline/>
+                            <label>Answer options</label>
+                        </div>
+                        <MultipleSelect className={styles.dropdown} type="answerOptions"/>
+                    </div>
                 </div>
             </div>
         </div>
