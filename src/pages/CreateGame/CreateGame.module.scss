@@ -60,10 +60,14 @@
                     label{
                         font-size: 0.75rem;
                         font-weight: 700;
+                        margin-left: 24px;
                     }
                 }
                 .content{
-
+                    display: flex;
+                    img{
+                        display: flex;
+                    }
                 }
             }
         }
@@ -144,7 +148,7 @@
                             input{
                                 flex: 12;
                                 border: none;
-                                font-size: 1.125rem;
+                                font-size: 1rem;
                                 font-weight: 500;
                             }
                             .redRectangle{
@@ -153,7 +157,7 @@
                                 height: 96px;
                                 background-color: #E21B3C;
                                 border-radius: 4px;
-                                margin: 0 16px 4px 16px;
+                                margin: 4px 8px;
                             }
                             .blueRectangle{
                                 display: flex;
@@ -161,7 +165,7 @@
                                 height: 96px;
                                 background-color: #1368ce;
                                 border-radius: 4px;
-                                margin: 0 16px 4px 16px;
+                                margin: 4px 8px;
                             }
                             .yellowRectangle{
                                 display: flex;
@@ -169,7 +173,7 @@
                                 height: 96px;
                                 background-color: #d89e00;
                                 border-radius: 4px;
-                                margin: 0 16px 4px 16px;
+                                margin: 4px 8px;
                             }
                             .greenRectangle{
                                 display: flex;
@@ -177,7 +181,7 @@
                                 height: 96px;
                                 background-color: #26890c;
                                 border-radius: 4px;
-                                margin: 0 16px 4px 16px;
+                                margin: 4px 8px;
                             }
                         }
                     }

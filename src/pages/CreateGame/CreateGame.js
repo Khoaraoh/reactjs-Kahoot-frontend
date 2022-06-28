@@ -1,11 +1,12 @@
 import { useReducer } from "react";
 import MyButton from "../../components/MyButton/MyButton";
 import MultipleSelect from "../../components/Dropdown/Dropdown";
-import {BsQuestionSquare} from 'react-icons/bs'
-import {RiAddBoxFill} from 'react-icons/ri'
-import {IoTimeOutline} from 'react-icons/io5'
-
+import {BsQuestionSquare} from 'react-icons/bs';
+import {RiAddBoxFill} from 'react-icons/ri';
+import {IoTimeOutline, IoOptions} from 'react-icons/io5';
+import {BiMedal} from 'react-icons/bi';
 import styles from "./CreateGame.module.scss";
+import QuestionBoard from "../../share/img/questionboard.png"
 
 const initQuestionList = [
     {
@@ -90,7 +91,7 @@ function CreateGame()
                                 }
                             </div>
                             <div className={styles.content}>
-                                
+                                <img src={QuestionBoard}></img>
                             </div>
                         </div>
                     ):(
@@ -171,14 +172,14 @@ function CreateGame()
                     </div>
                     <div className={styles.rightBodyItem}>
                         <div className={styles.selector}>
-                            <IoTimeOutline/>
+                            <BiMedal/>
                             <label>Point</label>
                         </div>
                         <MultipleSelect className={styles.dropdown} type="pointSelection"/>
                     </div>
                     <div className={styles.rightBodyItem}>
                         <div className={styles.selector}>
-                            <IoTimeOutline/>
+                            <IoOptions/>
                             <label>Answer options</label>
                         </div>
                         <MultipleSelect className={styles.dropdown} type="answerOptions"/>
