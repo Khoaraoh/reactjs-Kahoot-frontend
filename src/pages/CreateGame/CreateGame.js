@@ -5,8 +5,9 @@ import {BsQuestionSquare} from 'react-icons/bs';
 import {RiAddBoxFill} from 'react-icons/ri';
 import {IoTimeOutline, IoOptions} from 'react-icons/io5';
 import {BiMedal} from 'react-icons/bi';
+import {RiKeyboardBoxLine} from 'react-icons/ri';
+import {MdContentCopy, MdDeleteOutline} from 'react-icons/md';
 import styles from "./CreateGame.module.scss";
-import QuestionBoard from "../../share/img/questionboard.png"
 
 const initQuestionList = [
     {
@@ -91,7 +92,13 @@ function CreateGame()
                                 }
                             </div>
                             <div className={styles.content}>
-                                <img src={QuestionBoard}></img>
+                                <div className={styles.control}> 
+                                    <MdContentCopy/>
+                                    <MdDeleteOutline/>
+                                </div>
+                                <div className={styles.contentBoard}>
+                                    <RiKeyboardBoxLine/>
+                                </div>
                             </div>
                         </div>
                     ):(
@@ -105,11 +112,24 @@ function CreateGame()
                                 }
                             </div>
                             <div className={styles.content}>
-                                
+                                <div className={styles.control}> 
+                                    <MdContentCopy/>
+                                    <MdDeleteOutline/>
+                                </div>
+                                <div className={styles.contentBoard}>
+                                    <RiKeyboardBoxLine/>
+                                </div>
                             </div>
                         </div>
                     )
                 ))}
+                <div className={styles.addButton}>
+                    <MyButton
+                        text= "Add question"
+                        size="medium"
+                        color="blue"
+                    />
+                </div>
                 </div>
 
                 <div className={styles.centerBody}>
