@@ -5,7 +5,9 @@ import PlayerNameCard from "../../components/PlayerNameCard/PlayerNameCard";
 
 const playerNum = 3;
 const playerList = ["Khoa", "Tài", "Nam", "Lộc", "Long", "Anh", "An", "Bình", "BDiuqwfjqfq", "KillerQueen", "Hacker nhi đồng",
-"Khoa", "Tài", "Nam", "Lộc", "Long", "Anh", "An", "Bình", "BDiuqwfjqfq", "KillerQueen", "Hacker nhi đồng", , "Nam", "Lộc", "Long", "Anh", "An", "Bình", "BDiuqwfjqfq", "KillerQueen", "Hacker nhi đồng", "Khoa", "Tài", "Nam", "Lộc", "Long", "Anh", "An", "Bình", "BDiuqwfjqfq", "KillerQueen", "Hacker nhi đồng", "Khoa", "Tài", "Nam", "Lộc", "Long", "Anh", "An", "Bình", "BDiuqwfjqfq", "KillerQueen", "Hacker nhi đồng"]
+"Khoa", "Tài", "Nam", "Lộc", "Long", "Anh", "An", "Bình", "BDiuqwfjqfq", "KillerQueen", "Hacker nhi đồng", "Hacker nhi đồng",
+"Khoa", "Tài", "Nam", "Lộc", "Long", "Anh", "An", "Bình", "BDiuqwfjqfq", "KillerQueen", "Hacker nhi đồng", "Hacker nhi đồng",
+"Khoa", "Tài", "Nam", "Lộc", "Long", "Anh", "An", "Bình", "BDiuqwfjqfq", "KillerQueen", "Hacker nhi đồng"]
 
 function Lobby()
 {
