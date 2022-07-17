@@ -162,12 +162,12 @@ function CreateGame()
                                 <div className={styles.answerLine}>
                                     <div className={styles.answerBox}>
                                         <div className={styles.yellowRectangle}></div>
-                                        <input type="text" placeholder="Add answer 3 (optional)" value={questionItem.answers[2]}></input>
+                                        <input type="text" placeholder="Add answer 3" value={questionItem.answers[2]}></input>
                                     </div>
 
                                     <div className={styles.answerBox}>
                                         <div className={styles.greenRectangle}></div>
-                                        <input type="text" placeholder="Add answer 4 (optional)" value={questionItem.answers[3]}></input>
+                                        <input type="text" placeholder="Add answer 4" value={questionItem.answers[3]}></input>
                                     </div>
                                 </div>
                             </div>

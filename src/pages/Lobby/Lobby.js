@@ -1,8 +1,10 @@
-import styles from "./Lobby.module.scss";
 import {FaUser} from "react-icons/fa";
+
+import styles from "./Lobby.module.scss";
 import MyButton from "../../components/MyButton/MyButton";
 import PlayerNameCard from "../../components/PlayerNameCard/PlayerNameCard";
 
+//fake data to test
 const playerNum = 3;
 const playerList = ["Khoa", "Tài", "Nam", "Lộc", "Long", "Anh", "An", "Bình", "BDiuqwfjqfq", "KillerQueen", "Hacker nhi đồng",
 "Khoa", "Tài", "Nam", "Lộc", "Long", "Anh", "An", "Bình", "BDiuqwfjqfq", "KillerQueen", "Hacker nhi đồng", "Hacker nhi đồng",
