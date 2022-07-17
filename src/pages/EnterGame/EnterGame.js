@@ -7,10 +7,16 @@ function EnterGame()
 {
     
     const [gamePIN, setGamePIN] = useState('');
+    const [playerName, setPlayerName] = useState('');
 
     function handleInputGamePIN(value)
     {
         setGamePIN(value);
+    }
+
+    function handleInputPlayerName(value)
+    {
+        setPlayerName(value);
     }
 
     return (
@@ -27,6 +33,7 @@ function EnterGame()
                 <img src='https://assets-cdn.kahoot.it/controller/v2/assets/icn_kahoot_logo.58b66a21.svg'></img>
                 <form action='#'>
                     <input type='text' placeholder='Game PIN' value={gamePIN} onChange={e => handleInputGamePIN(e.target.value)}></input>
+                    <input type='text' placeholder='Your Name' value={playerName} onChange={e => handleInputPlayerName(e.target.value)}></input>
                     <div>
                         <MyButton
                             text='Enter'

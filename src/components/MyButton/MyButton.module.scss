@@ -91,3 +91,14 @@
         color: #000
     }
 }
+
+.white {
+    background-color: #fff;
+    border-color:  #C8C8C8;
+    &:hover {
+        background-color:#C8C8C8;
+    }
+    p{
+        color: #000
+    }
+}

@@ -2,9 +2,9 @@ import MyButton from '../MyButton/MyButton';
 
 import styles from './AuthForm.module.scss';
 
-function AuthForm({type})
+function AuthForm({typeForm})
 {
-    switch(type)
+    switch(typeForm)
     {
         case 'signup':
         {
@@ -21,7 +21,7 @@ function AuthForm({type})
                         <div className={styles.button}>
                             <MyButton
                                 text="Sign up"
-                                color="green"
+                                color="blue"
                                 size="medium"
                             ></MyButton> 
                         </div>
@@ -41,7 +41,7 @@ function AuthForm({type})
                         <h3>Log in</h3>
                     </div>
                     <div className={styles.mainFormContainer}>
-                        <label>Usernam or email</label>
+                        <label>Username or email</label>
                         <input type="text"></input>
                         <label>Password</label>
                         <input type="text"></input>

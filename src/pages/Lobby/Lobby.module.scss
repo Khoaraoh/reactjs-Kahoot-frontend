@@ -1,0 +1,80 @@
+.lobbyContainer{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    .header{
+        background-color: #25076B;
+        display: flex;
+        flex: 1;
+        align-items: center;
+        justify-content: center;
+        .gamePin{
+            background-color: #fff;
+            border-radius: 4px;
+            height: 80%;
+            padding: 0 32px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            p{
+                font-weight: 700;
+                font-size: 2.5vh;
+            }
+            h1{
+                font-weight: 900;
+                font-size: 10vh;
+                color: #333;
+            }
+        }
+    }
+    .body{
+        background-color: #46178F;
+        display: flex;
+        flex-direction: column;
+        flex: 4;
+        max-height: 80vh;
+        .controller{
+            display: flex;
+            flex-direction: row;
+            flex:1;
+            justify-content: space-between;
+            padding: 28px;
+            .playerNumber{
+                display: flex;
+                color: #fff;
+                font-size: 1.5rem;
+                font-weight: 500;
+                background-color: #1F0A40;
+                height: 48px;
+                width: 92px;
+                padding: 4px;
+                justify-content: space-around;
+                align-items: center;
+                border-radius: 4px;
+            }
+            h2{
+                color: #fff;
+                font-size: 2rem;
+            }
+            .startButton{
+    
+            }
+        }
+        .playerList{
+            flex: 5;
+            display: flex;
+            flex-direction: row;
+            padding: 0 160px;
+            flex-wrap: wrap;
+            overflow: scroll;
+            overflow-x: hidden;
+            justify-content: center;
+            .playerCard{
+                margin: 16px;
+            }
+        }
+    }
+}
