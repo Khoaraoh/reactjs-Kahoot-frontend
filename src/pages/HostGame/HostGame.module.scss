@@ -12,29 +12,47 @@
         .questionTitle{
             display: flex;
             flex: 1;
+            justify-content: space-between;
             input{
-                flex: 1;
+                width: 80vw;
                 padding: 0 32px;
                 border-radius: 4px;
-                border-top-width: 0px;
-                border-right-width: 0px;
-                border-bottom-width: 4px;
-                border-left-width: 0px;
-                border-color: #D9D9D9;
+                border: none;
                 line-height: normal;
-                font-size: 3vh;
+                font-size: 4vh;
                 text-align: center;
-                font-weight: 500;
+                font-weight: 700;
+                box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+            }
+            .blank{
+                width: 96px;
+                height: 48px;
             }
         }
 
         .mediaContainer{
             display: flex;
             padding: 24px 0;
-            flex: 6;
-            justify-content: center;
+            flex: 4;
+            justify-content: space-between;
+            align-items: center;
+            .timer{
+                background-color: #864CBF;
+                border-radius: 50%;
+                height: 120px;
+                width: 120px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                span{
+                    font-weight: 700;
+                    font-size: 3rem;
+                    color: #fff;
+                }
+            }
             .media{
                 width: 70vh;
+                height: 100%;
                 background-color: #fff;
                 border-radius: 4px;
                 border-color: #D9D9D9;
@@ -59,12 +77,25 @@
                     color: #757575;
                 }
             }
+            .playerCounter{
+                font-weight: 700;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                span{
+                    font-size: 2rem;
+                }
+                label{
+                    font-size: 1.5rem;
+                }
+            }
         }
 
         .answerContainer{
             display: flex;
             flex-direction: column;
-            flex: 4;
+            flex: 0;
             .answerLine{
                 display: flex;
                 flex-direction: row;
@@ -73,49 +104,50 @@
                     display: flex;
                     flex: 1;
                     margin: 8px 4px;
-                    background-color: #fff;
-                    box-shadow: 0 4px #D9D9D9;
                     border-radius: 4px;
                     align-items: center;
+                    &:hover{
+                        opacity: 0.9;
+                    }
                     input{
                         flex: 12;
                         border: none;
-                        font-size: 1rem;
-                        font-weight: 500;
+                        font-size: 4vh;
+                        font-weight: 700;
+                        background-color: transparent;
+                        color: #fff;
                     }
-                    .redRectangle{
+                    .icon{
                         display: flex;
                         flex: 1;
                         height: 96px;
-                        background-color: #E21B3C;
+                        background-color: transparent;
                         border-radius: 4px;
                         margin: 4px 8px;
-                    }
-                    .blueRectangle{
-                        display: flex;
-                        flex: 1;
-                        height: 96px;
-                        background-color: #1368ce;
-                        border-radius: 4px;
-                        margin: 4px 8px;
-                    }
-                    .yellowRectangle{
-                        display: flex;
-                        flex: 1;
-                        height: 96px;
-                        background-color: #d89e00;
-                        border-radius: 4px;
-                        margin: 4px 8px;
-                    }
-                    .greenRectangle{
-                        display: flex;
-                        flex: 1;
-                        height: 96px;
-                        background-color: #26890c;
-                        border-radius: 4px;
-                        margin: 4px 8px;
+                        justify-content: center;
+                        align-items: center;
+                        svg{
+                            color: #fff;
+                            font-size: 2rem;
+                        }
                     }
                 }
+            }
+            .red{
+                background-color: #E21B3C;
+                box-shadow: 0 4px #B1152F;
+            }
+            .blue{
+                background-color: #1368ce;
+                box-shadow: 0 4px #0F52A2;
+            }
+            .yellow{
+                background-color: #d89e00;
+                box-shadow: 0 4px #A97C00;
+            }
+            .green{
+                background-color: #26890c;
+                box-shadow: 0 4px #1E6B09;
             }
         }
     }
@@ -124,5 +156,13 @@
         height: 48px;
         display: flex;
         box-shadow: 0 0 4px 0 rgba(0,0,0,0.2);
+        display: flex;
+        justify-content: space-between;
+        padding: 4px 16px;
+        align-items: center;
+        span{
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
     }
 }
