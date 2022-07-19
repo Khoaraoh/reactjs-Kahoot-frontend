@@ -1,0 +1,45 @@
+.barchartContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    .bar{
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        span{
+            font-weight: 700;
+            font-size: 1.5rem;
+            
+        }
+        .red{
+            width: 120px;
+            background-color: #E21B3C;
+            color: #E21B3C
+        }
+        .blue{
+            width: 120px;
+            background-color: #1368ce;
+        }
+        .yellow{
+            width: 120px;
+            background-color: #d89e00;
+        }
+        .green{
+            width: 120px;
+            background-color: #26890c;
+        }
+        .redNum{
+            color: #E21B3C
+        }
+        .blueNum{
+            color: #1368ce
+        }
+        .yellowNum{
+            color: #d89e00
+        }
+        .greenNum{
+            color: #26890c
+        }
+    }
+}
