@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import {Link} from 'react-router-dom';
 
 import styles from './EnterGame.module.scss'
 import MyButton from '../../components/MyButton/MyButton';
@@ -48,7 +49,10 @@ function EnterGame()
             <div className={styles.footer}>
                 <div className={styles.footerContent}>
                     <p>Create your own Kahoot for FREE at &nbsp;</p>
-                    <a>kahoot.com</a>
+                    <Link to="/login" style={{ color: 'inherit', textDecoration: 'inherit'}}>
+                        <a>kahoot.com</a>
+                    </Link>
+                    
                 </div>
                 <div className={styles.footerContent}>
                     <a>Terms</a>

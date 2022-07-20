@@ -1,5 +1,6 @@
-import MyButton from '../MyButton/MyButton';
+import {Link} from 'react-router-dom';
 
+import MyButton from '../MyButton/MyButton';
 import styles from './AuthForm.module.scss';
 
 function AuthForm({typeForm})
@@ -28,7 +29,9 @@ function AuthForm({typeForm})
                     </div>
                     <div className={styles.footer}>
                         <p>Already have an account?</p>
-                        <a>Log in</a>
+                        <Link to="/login" style={{ color: 'inherit', textDecoration: 'inherit'}}>
+                            <a>Log in</a>
+                        </Link>
                     </div>
                 </div>
             )
@@ -45,17 +48,21 @@ function AuthForm({typeForm})
                         <input type="text"></input>
                         <label>Password</label>
                         <input type="text"></input>
-                        <div className={styles.button}>
-                            <MyButton
-                                text="Sign up"
-                                color="green"
-                                size="medium"
-                            ></MyButton> 
-                        </div>
+                        <Link to="/dashboard" style={{ color: 'inherit', textDecoration: 'inherit'}}>
+                            <div className={styles.button}>
+                                <MyButton
+                                    text="Log in"
+                                    color="green"
+                                    size="medium"
+                                ></MyButton> 
+                            </div>
+                        </Link>
                     </div>
                     <div className={styles.footer}>
                         <p>Don't have an account?</p>
-                        <a>Sign up</a>
+                        <Link to="/signup" style={{ color: 'inherit', textDecoration: 'inherit'}}>
+                            <a>Sign up</a>
+                        </Link>
                     </div>
                 </div>
             )
