@@ -1,0 +1,172 @@
+.gameContainer{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    .header{
+        background-color: #fff;
+        height: 48px;
+        display: flex;
+        box-shadow: 0 0 4px 0 rgba(0,0,0,0.2);
+        display: flex;
+        padding: 4px 16px;
+        align-items: center;
+        span{
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+    }
+
+    .body{
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        .line{
+            display: flex;
+            flex-direction: row;
+            flex: 1;
+            .selection{
+                flex: 1;
+                background-color: #303030;
+                margin: 16px;
+                border-radius: 4px;
+                &:hover{
+                    cursor: pointer;
+                    opacity: 0.8;
+                }
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                svg{
+                    color: #fff;
+                    font-size: 5rem;
+                }
+            }
+            .red{
+                background-color: #E21B3C;
+                border: 2px solid #B1152F;
+            }
+            .blue{
+                background-color: #1368ce;
+                border: 2px solid #0F52A2;
+            }
+            .yellow{
+                background-color: #d89e00;
+                border: 2px solid #A97C00;
+            }   
+            .green{
+                background-color: #26890c;
+                border: 2px solid #1E6B09;
+            }
+        }
+    }
+
+    .resultBody{
+        flex: 1;
+        display: flex;
+        background-color: #FFA438;
+        justify-content: center;
+        align-items: center;
+        font-weight: 700;
+        .result{
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            svg{
+                color: #fff;
+                font-size: 8rem;
+            }
+            h1{
+                color: #145803;
+                font-size: 4rem;
+                padding: 16px;
+            }
+            span{
+                font-size: 2rem;
+            }
+        }
+    }
+
+    .answerBody{
+        background-color: #46178F;
+        display: flex;
+        flex: 1;
+        justify-content: center;
+        align-items: center;
+        .correct{
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            h1{
+                color: #2eb90b;
+                font-weight: 700;
+                font-size: 3rem;
+                padding: 24px;
+            }
+            span{
+                color: #fff;
+                font-weight: 700;
+                font-size: 1.5rem;
+            }
+        }
+
+        .incorrect{
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            h1{
+                color: #E21B3C;
+                font-weight: 700;
+                font-size: 3rem;
+            }
+            span{
+                color: #fff;
+                font-weight: 700;
+                font-size: 1.5rem;
+                padding: 16px;
+            }
+            p{
+                color: #fff;
+                font-weight: 700;
+                font-size: 1rem;
+            }
+        }
+
+
+    }
+
+    .footer{
+        background-color: #fff;
+        height: 48px;
+        display: flex;
+        box-shadow: 0 0 4px 0 rgba(0,0,0,0.2);
+        display: flex;
+        justify-content: space-between;
+        padding: 4px 16px;
+        align-items: center;
+        span{
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+        .point{
+            display: flex;
+            width: 96px;
+            background-color: #000;
+            height: 32px;
+            border-radius: 4px;
+            justify-content: center;
+            align-items: center;
+            span{
+                font-weight: 700;
+                font-size: 1.5rem;
+                color: #fff;
+            }
+        }
+    }
+}

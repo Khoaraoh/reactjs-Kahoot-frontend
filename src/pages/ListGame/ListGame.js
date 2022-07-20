@@ -1,4 +1,5 @@
 import {FaUser} from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 import MyButton from '../../components/MyButton/MyButton';
 import styles from './ListGame.module.scss';
@@ -50,12 +51,13 @@ function ListGame()
                 <div className={styles.account}>
                     <FaUser/>
                 </div>
-
+                <Link to="/create" style={{ color: 'inherit', textDecoration: 'inherit'}}>
                 <MyButton
                     color="blue"
                     text="Create"
                     size="medium"
                 />
+                </Link>
             </div>
 
             <div className={styles.body}>
@@ -76,11 +78,13 @@ function ListGame()
                                 size="small"
                                 text="Update"
                             />
+                            <Link to="/lobby" style={{ color: 'inherit', textDecoration: 'inherit'}}>
                             <MyButton
                                 color="blue"
                                 size="small"
                                 text="Start"
                             />
+                            </Link>
                         </div>
                     </div>
                 ))}

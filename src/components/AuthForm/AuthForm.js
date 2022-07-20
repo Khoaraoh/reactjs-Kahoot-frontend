@@ -20,11 +20,13 @@ function AuthForm({typeForm})
                         <label>Password</label>
                         <input type="text"></input>
                         <div className={styles.button}>
+                        <Link to="/dashboard" style={{ color: 'inherit', textDecoration: 'inherit'}}>
                             <MyButton
                                 text="Sign up"
                                 color="blue"
                                 size="medium"
-                            ></MyButton> 
+                            ></MyButton>
+                        </Link>
                         </div>
                     </div>
                     <div className={styles.footer}>
@@ -48,15 +50,15 @@ function AuthForm({typeForm})
                         <input type="text"></input>
                         <label>Password</label>
                         <input type="text"></input>
-                        <Link to="/dashboard" style={{ color: 'inherit', textDecoration: 'inherit'}}>
                             <div className={styles.button}>
+                            <Link to="/dashboard" style={{ color: 'inherit', textDecoration: 'inherit'}}>
                                 <MyButton
                                     text="Log in"
                                     color="green"
                                     size="medium"
-                                ></MyButton> 
+                                ></MyButton>  
+                            </Link>
                             </div>
-                        </Link>
                     </div>
                     <div className={styles.footer}>
                         <p>Don't have an account?</p>
