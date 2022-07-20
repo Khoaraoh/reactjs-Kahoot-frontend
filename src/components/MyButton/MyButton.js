@@ -44,7 +44,7 @@ function MyButton(props)
             myClassName += ` ${styles.black}`;
     }
     return (
-        <div className={myClassName}>
+        <div className={myClassName} {...props}>
             <p>{props.text}</p>
         </div>
     )

@@ -1,52 +1,57 @@
-import {FaUser} from "react-icons/fa";
+import { FaUser } from "react-icons/fa";
 
 import styles from "./Lobby.module.scss";
 import MyButton from "../../components/MyButton/MyButton";
 import PlayerNameCard from "../../components/PlayerNameCard/PlayerNameCard";
+import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { socket } from "../../share/socket/socket";
 
-//fake data to test
-const playerNum = 3;
-const playerList = ["Khoa", "Tài", "Nam", "Lộc", "Long", "Anh", "An", "Bình", "BDiuqwfjqfq", "KillerQueen", "Hacker nhi đồng",
-"Khoa", "Tài", "Nam", "Lộc", "Long", "Anh", "An", "Bình", "BDiuqwfjqfq", "KillerQueen", "Hacker nhi đồng", "Hacker nhi đồng",
-"Khoa", "Tài", "Nam", "Lộc", "Long", "Anh", "An", "Bình", "BDiuqwfjqfq", "KillerQueen", "Hacker nhi đồng", "Hacker nhi đồng",
-"Khoa", "Tài", "Nam", "Lộc", "Long", "Anh", "An", "Bình", "BDiuqwfjqfq", "KillerQueen", "Hacker nhi đồng"]
-
-function Lobby()
-{
-    return(
+function Lobby() {
+    const currentGame = useSelector((state) => state.game.currentGame);
+    const [listPlayers, setListPlayers] = useState(null);
+    useEffect(() => {
+        socket.emit("fetchPlayersInRoom");
+        socket.on("receive__players", (playerInRoom) => {
+            setListPlayers(playerInRoom);
+        });
+    }, [socket]);
+    return (
         <div className={styles.lobbyContainer}>
             <div className={styles.header}>
                 <div className={styles.gamePin}>
                     <p>Game PIN:</p>
-                    <h1>3658914</h1>
+                    <h1>{!!currentGame ? currentGame.room : "000000"}</h1>
                 </div>
             </div>
 
             <div className={styles.body}>
                 <div className={styles.controller}>
                     <div className={styles.playerNumber}>
-                        <FaUser/>
-                        <label>{playerNum}</label>
+                        <FaUser />
+                        <label>
+                            {!!listPlayers
+                                ? listPlayers.length
+                                : currentGame.listPlayers.length}
+                        </label>
                     </div>
                     <h2>Player List</h2>
                     <div className={styles.startButton}>
-                        <MyButton
-                            text="Start"
-                            size="medium"
-                            color="white"
-                        />
+                        <MyButton text="Start" size="medium" color="white" />
                     </div>
                 </div>
                 <div className={styles.playerList}>
-                    {playerList.map(item => (
-                        <div className={styles.playerCard}>
-                           <PlayerNameCard name={item}/>
-                        </div>
-                    ))}
+                    {!!listPlayers
+                        ? listPlayers.map((item) => (
+                              <div className={styles.playerCard}>
+                                  <PlayerNameCard name={item.name} />
+                              </div>
+                          ))
+                        : null}
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
 export default Lobby;

@@ -1,92 +1,88 @@
-import {FaUser} from 'react-icons/fa';
+import { FaUser } from "react-icons/fa";
 
-import MyButton from '../../components/MyButton/MyButton';
-import styles from './ListGame.module.scss';
-import {RiKeyboardBoxLine} from 'react-icons/ri';
+import MyButton from "../../components/MyButton/MyButton";
+import styles from "./ListGame.module.scss";
+import { RiKeyboardBoxLine } from "react-icons/ri";
+import { useEffect, useState } from "react";
+import { socket } from "../../share/socket/socket";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { updateCurrentGame } from "../../share/redux/reducers/game.reducers";
 
 //fake data
-const username = 'Đăng Khoa'
+const username = "Đăng Khoa";
 
-const gameList = [
-    {
-        name: 'Game 1'
-    },
-    {
-        name: 'Game 2'
+function ListGame() {
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const [gameList, setGameList] = useState([]);
+    useEffect(() => {
+        socket.emit("fetchQuizList", socket.id);
+        socket.on("fetchQuizListRes", (data) => {
+            setGameList(data);
+        });
+    }, []);
 
-    },
-    {
-        name: 'Test'
-    },
-    {
-        name: 'Game 1'
-    },
-    {
-        name: 'Game 2'
+    const handleCreateButton = () => {
+        navigate("/create");
+    };
 
-    },
-    {
-        name: 'Test'
-    },
-    {
-        name: 'Game 1'
-    },
-    {
-        name: 'Game 2'
-
-    },
-    {
-        name: 'Test'
-    }
-]
-
-function ListGame()
-{
+    const hostGame = (gameId) => {
+        socket.emit("hostGame", gameId);
+        socket.on("hostGameRes", (res) => {
+            dispatch(updateCurrentGame(res?.game));
+            navigate("/lobby");
+        });
+    };
     return (
         <div className={styles.listGameContainer}>
             <div className={styles.header}>
                 <span>Welcome, {username}</span>
 
                 <div className={styles.account}>
-                    <FaUser/>
+                    <FaUser />
                 </div>
 
                 <MyButton
                     color="blue"
                     text="Create"
                     size="medium"
+                    onClick={handleCreateButton}
                 />
             </div>
 
             <div className={styles.body}>
-                {gameList.map(gameItem => (
-                    <div className={styles.gameCard}>
-                        <div className={styles.left}>
-                            <RiKeyboardBoxLine/>
-                            <span>{gameItem.name}</span>
-                        </div>
-                        <div className={styles.right}>
-                            <MyButton
-                                color="red"
-                                size="small"
-                                text="Delete"
-                            />
-                            <MyButton
-                                color="green"
-                                size="small"
-                                text="Update"
-                            />
-                            <MyButton
-                                color="blue"
-                                size="small"
-                                text="Start"
-                            />
-                        </div>
-                    </div>
-                ))}
+                {!!gameList
+                    ? gameList.map((gameItem) => (
+                          <div className={styles.gameCard}>
+                              <div className={styles.left}>
+                                  <RiKeyboardBoxLine />
+                                  <span>{gameItem.name}</span>
+                              </div>
+                              <div className={styles.right}>
+                                  <MyButton
+                                      color="red"
+                                      size="small"
+                                      text="Delete"
+                                  />
+                                  <MyButton
+                                      color="green"
+                                      size="small"
+                                      text="Update"
+                                  />
+                                  <MyButton
+                                      color="blue"
+                                      size="small"
+                                      text="Host"
+                                      onClick={() => hostGame(gameItem._id)}
+                                  />
+                              </div>
+                          </div>
+                      ))
+                    : null}
             </div>
         </div>
-    )
+    );
 }
 
 export default ListGame;
