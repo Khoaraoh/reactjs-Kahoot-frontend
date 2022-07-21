@@ -7,7 +7,7 @@ import BarChart from "../../components/BarChart/BarChart";
 
 // Fake data
 //Change state to change view (question, answer, scoreboard, result).
-const state = "result";
+const state = "question";
 
 const scoreboard = [
     {
