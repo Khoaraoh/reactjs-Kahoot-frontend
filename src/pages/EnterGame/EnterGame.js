@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import styles from "./EnterGame.module.scss";
 import MyButton from "../../components/MyButton/MyButton";
@@ -8,6 +8,7 @@ import { socket } from "../../share/socket/socket";
 function EnterGame() {
     const [gamePIN, setGamePIN] = useState("");
     const [playerName, setPlayerName] = useState("");
+    const navigate = useNavigate();
 
     function handleInputGamePIN(value) {
         setGamePIN(value);
@@ -28,10 +29,14 @@ function EnterGame() {
         });
     };
 
+    const navigateCreateGame = () => {
+      navigate("/create")
+    }
+
     return (
         <div className={styles.enterGameContainer}>
             <div className={styles.header}>
-                <MyButton text="Languague" size="medium" color="red" />
+                <MyButton text="Host game" size="medium" color="red" onClick={navigateCreateGame} />
             </div>
 
             <div className={styles.content}>

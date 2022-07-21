@@ -12,12 +12,44 @@ import BarChart from "../../components/BarChart/BarChart";
 import { socket } from "../../share/socket/socket";
 import { useEffect } from "react";
 
-//Change state to change view (question, answer, scoreboard). Fake data
-const state = "answer";
+// Fake data
+//Change state to change view (question, answer, scoreboard, result).
+const state = "question";
+
+const scoreboard = [
+    {
+        name: "Khoa",
+        score: 159,
+    },
+    {
+        name: "Lộc",
+        score: 196,
+    },
+    {
+        name: "Nam",
+        score: 132,
+    },
+    {
+        name: "Tài",
+        score: 201,
+    },
+    {
+        name: "Long",
+        score: 157,
+    },
+    {
+        name: "An",
+        score: 112,
+    },
+    {
+        name: "Bình",
+        score: 99,
+    },
+];
 
 function HostGame() {
     return (
-        <div>
+        <>
             {/* Question state */}
             {state === "question" && (
                 <div className={styles.hostgameContainer}>
@@ -153,7 +185,64 @@ function HostGame() {
                     </div>
                 </div>
             )}
-        </div>
+
+            {/* Scorceboard state */}
+            {state === "scoreboard" && (
+                <div className={styles.scoreboardContainer}>
+                    <div className={styles.questionItem}>
+                        <div className={styles.questionTitle}>
+                            <div className={styles.blank}></div>
+                            <span>Scoreboard</span>
+                            <MyButton text="Skip" size="medium" color="blue" />
+                        </div>
+                    </div>
+
+                    <div className={styles.body}>
+                        {scoreboard
+                            .sort((a, b) => b.score - a.score)
+                            .map((item) => (
+                                <div className={styles.scoreItem}>
+                                    <span>{item.name}</span>
+                                    <span>{item.score}</span>
+                                </div>
+                            ))}
+                    </div>
+
+                    <div className={styles.footer}>
+                        <span>3/4</span>
+                        <span>Game PIN: 8956234</span>
+                    </div>
+                </div>
+            )}
+            {/* Final Result state */}
+            {state === "result" && (
+                <div className={styles.resultContainer}>
+                    <div className={styles.questionItem}>
+                        <div className={styles.questionTitle}>
+                            <div className={styles.blank}></div>
+                            <span>Final Result</span>
+                            <MyButton text="End" size="medium" color="red" />
+                        </div>
+                    </div>
+
+                    <div className={styles.body}>
+                        {scoreboard
+                            .sort((a, b) => b.score - a.score)
+                            .map((item) => (
+                                <div className={styles.scoreItem}>
+                                    <span>{item.name}</span>
+                                    <span>{item.score}</span>
+                                </div>
+                            ))}
+                    </div>
+
+                    <div className={styles.footer}>
+                        <span>3/4</span>
+                        <span>Game PIN: 8956234</span>
+                    </div>
+                </div>
+            )}
+        </>
     );
 }
 

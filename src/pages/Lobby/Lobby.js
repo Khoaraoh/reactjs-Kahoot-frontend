@@ -1,4 +1,5 @@
-import { FaUser } from "react-icons/fa";
+import {FaUser} from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 import styles from "./Lobby.module.scss";
 import MyButton from "../../components/MyButton/MyButton";
@@ -37,7 +38,13 @@ function Lobby() {
                     </div>
                     <h2>Player List</h2>
                     <div className={styles.startButton}>
-                        <MyButton text="Start" size="medium" color="white" />
+                        <Link to="/hostgame" style={{ color: 'inherit', textDecoration: 'inherit'}}>
+                        <MyButton
+                            text="Start"
+                            size="medium"
+                            color="white"
+                        />
+                        </Link>
                     </div>
                 </div>
                 <div className={styles.playerList}>
