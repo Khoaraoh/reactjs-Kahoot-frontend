@@ -46,7 +46,6 @@ const ResultView = () => {
   useEffect(()=>{
     socket.emit("getRankList");
     socket.on("getRankListRes", data => {
-      console.log('dataRankList', data);
       dispatch(updateRankList(data));
     })
   },[socket])

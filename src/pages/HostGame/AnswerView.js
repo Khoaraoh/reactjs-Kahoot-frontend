@@ -23,11 +23,9 @@ const AnswerView = () => {
 
   useEffect(()=>{
     socket.on("hostGetQuestionRes", data=>{
-      console.log('client data res', data);
       dispatch(updateQuestionList(data.questionData))
     })
     socket.on("updatePlayerInfo", data=>{
-      console.log('updatePlayerInfoData', data);
     })
     socket.on("questionTimeOut", ()=>{
       navigate('/player/game/scoreboard')
@@ -35,8 +33,6 @@ const AnswerView = () => {
   },[socket])
 
   const handleClickAnswer = (value) => {
-    console.log(value.answer)
-    console.log(socket.id);
     socket.emit("playerAnswer", ({playerId: socket.id, questionId: questionList.questionData.id, answerContent: value.answer, index: value._id}))
     
   } 

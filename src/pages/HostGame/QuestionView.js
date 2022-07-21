@@ -27,7 +27,6 @@ const QuestionView = () => {
       dispatch(updateQuestionList(data.questionData))
     })
     socket.on("playerAnswerRes", data=>{
-      console.log('newListData', data);
       dispatch(updatePlayerAnswerCount(data?.playerAnswers?.length));
     })
 
@@ -53,7 +52,6 @@ const QuestionView = () => {
                         <p>Insert media</p>
                     </div>
                     <div className={styles.playerCounter}>
-                      {console.log('playerAnswerCount', playerAnswerCount)}
                         <span>{!!playerAnswerCount ? playerAnswerCount : 0}</span>
                         <label>Answers</label>
                     </div>

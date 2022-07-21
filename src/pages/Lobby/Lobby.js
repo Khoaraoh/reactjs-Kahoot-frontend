@@ -19,7 +19,6 @@ function Lobby() {
         });
         socket.emit("getQuiz", currentGame?.gameData?._id)
         socket.on("getQuizResult", data => {
-          console.log('quiz result', data);
         })
     }, [socket]);
 

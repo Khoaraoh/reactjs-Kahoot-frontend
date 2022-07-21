@@ -108,9 +108,7 @@ function CreateGame() {
             userId: socket.id,
         };
         socket.emit("createGame", data);
-        socket.on("createGameResult", (msg) => {
-            console.log("msg from server", msg);
-        });
+        socket.on("createGameResult", (msg) => {});
         toast.success("Create game successfully");
         navigate("/dashboard");
     };
@@ -214,12 +212,6 @@ function CreateGame() {
                                         ></input>
                                     </div>
 
-                                    <div className={styles.mediaContainer}>
-                                        <div className={styles.media}>
-                                            <RiAddBoxFill />
-                                            <p>Insert media</p>
-                                        </div>
-                                    </div>
 
                                     <div className={styles.answerContainer}>
                                         <div className={styles.answerLine}>
@@ -288,45 +280,16 @@ function CreateGame() {
                 </div>
 
                 <div className={styles.rightBody}>
-                    <div className={styles.rightBodyItem}>
-                        <div className={styles.selector}>
-                            <BsQuestionSquare />
-                            <label>Question type</label>
-                        </div>
-                        <MultipleSelect
-                            className={styles.dropdown}
-                            type="questionType"
-                        />
-                    </div>
+
                     <div className={styles.rightBodyItem}>
                         <div className={styles.selector}>
                             <IoTimeOutline />
                             <label>Correct answer</label>
                         </div>
                         <input
-                            className={styles.dropdown}
+                            className={styles.correctAns}
                             value={correctAnswer}
                             onChange={onCorrectAnswerChange}
-                        />
-                    </div>
-                    <div className={styles.rightBodyItem}>
-                        <div className={styles.selector}>
-                            <BiMedal />
-                            <label>Point</label>
-                        </div>
-                        <MultipleSelect
-                            className={styles.dropdown}
-                            type="pointSelection"
-                        />
-                    </div>
-                    <div className={styles.rightBodyItem}>
-                        <div className={styles.selector}>
-                            <IoOptions />
-                            <label>Answer options</label>
-                        </div>
-                        <MultipleSelect
-                            className={styles.dropdown}
-                            type="answerOptions"
                         />
                     </div>
                 </div>

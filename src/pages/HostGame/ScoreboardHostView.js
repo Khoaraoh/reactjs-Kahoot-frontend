@@ -18,7 +18,6 @@ const ScoreboardHostView = () => {
   useEffect(()=>{
     socket.emit("getSummaryRankList", 2);
     socket.on("getSummaryRankListRes", data => {
-      console.log('dataRankListGetSummary', data);
       dispatch(updateRankList(data));
     })
   },[socket])

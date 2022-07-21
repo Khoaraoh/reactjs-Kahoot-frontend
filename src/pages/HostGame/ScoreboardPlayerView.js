@@ -18,7 +18,6 @@ const ScoreboardPlayerView = () => {
 
   useEffect(()=>{
     socket.on("playerRank", data => {
-      console.log('dataRankListGetSummary', data);
       dispatch(updateRankList(data));
     })
   },[socket])

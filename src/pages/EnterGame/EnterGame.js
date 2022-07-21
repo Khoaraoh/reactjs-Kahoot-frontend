@@ -28,7 +28,6 @@ function EnterGame() {
         };
         socket.emit("joinRoom", data);
         socket.on("joinRoomRes", (res) => {
-            console.log("res", res);
             dispatch(savePlayer(res?.player))
             navigate('/room')
         });
