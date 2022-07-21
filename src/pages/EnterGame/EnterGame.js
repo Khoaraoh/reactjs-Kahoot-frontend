@@ -4,11 +4,14 @@ import { Link, useNavigate } from "react-router-dom";
 import styles from "./EnterGame.module.scss";
 import MyButton from "../../components/MyButton/MyButton";
 import { socket } from "../../share/socket/socket";
+import { useDispatch } from "react-redux";
+import { savePlayer } from "../../share/redux/reducers/player.reducers";
 
 function EnterGame() {
     const [gamePIN, setGamePIN] = useState("");
     const [playerName, setPlayerName] = useState("");
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     function handleInputGamePIN(value) {
         setGamePIN(value);
@@ -26,6 +29,8 @@ function EnterGame() {
         socket.emit("joinRoom", data);
         socket.on("joinRoomRes", (res) => {
             console.log("res", res);
+            dispatch(savePlayer(res?.player))
+            navigate('/room')
         });
     };
 

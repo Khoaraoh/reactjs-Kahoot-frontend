@@ -107,7 +107,6 @@ function CreateGame() {
             ],
             userId: socket.id,
         };
-        console.log("data frontend ne", data);
         socket.emit("createGame", data);
         socket.on("createGameResult", (msg) => {
             console.log("msg from server", msg);

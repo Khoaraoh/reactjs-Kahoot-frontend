@@ -1,5 +1,5 @@
 import {FaUser} from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import styles from "./Lobby.module.scss";
 import MyButton from "../../components/MyButton/MyButton";
@@ -11,12 +11,22 @@ import { socket } from "../../share/socket/socket";
 function Lobby() {
     const currentGame = useSelector((state) => state.game.currentGame);
     const [listPlayers, setListPlayers] = useState(null);
+    const navigate = useNavigate()
     useEffect(() => {
         socket.emit("fetchPlayersInRoom");
         socket.on("receive__players", (playerInRoom) => {
             setListPlayers(playerInRoom);
         });
+        socket.emit("getQuiz", currentGame?.gameData?._id)
+        socket.on("getQuizResult", data => {
+          console.log('quiz result', data);
+        })
     }, [socket]);
+
+    const handleStartGame = () => {
+      socket.emit("startGame");
+      navigate('/host/game')
+    }
     return (
         <div className={styles.lobbyContainer}>
             <div className={styles.header}>
@@ -38,13 +48,12 @@ function Lobby() {
                     </div>
                     <h2>Player List</h2>
                     <div className={styles.startButton}>
-                        <Link to="/hostgame" style={{ color: 'inherit', textDecoration: 'inherit'}}>
                         <MyButton
                             text="Start"
                             size="medium"
                             color="white"
+                            onClick={handleStartGame}
                         />
-                        </Link>
                     </div>
                 </div>
                 <div className={styles.playerList}>
