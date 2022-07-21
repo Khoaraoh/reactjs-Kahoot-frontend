@@ -28,19 +28,24 @@ function EnterGame() {
         };
         socket.emit("joinRoom", data);
         socket.on("joinRoomRes", (res) => {
-            dispatch(savePlayer(res?.player))
-            navigate('/room')
+            dispatch(savePlayer(res?.player));
+            navigate("/room");
         });
     };
 
     const navigateCreateGame = () => {
-      navigate("/create")
-    }
+        navigate("/dashboard");
+    };
 
     return (
         <div className={styles.enterGameContainer}>
             <div className={styles.header}>
-                <MyButton text="Host game" size="medium" color="red" onClick={navigateCreateGame} />
+                <MyButton
+                    text="Host game"
+                    size="medium"
+                    color="red"
+                    onClick={navigateCreateGame}
+                />
             </div>
 
             <div className={styles.content}>

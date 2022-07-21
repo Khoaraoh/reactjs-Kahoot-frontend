@@ -1,5 +1,5 @@
-import {FaUser} from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { FaUser } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 import MyButton from "../../components/MyButton/MyButton";
 import styles from "./ListGame.module.scss";
@@ -9,9 +9,6 @@ import { socket } from "../../share/socket/socket";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { updateCurrentGame } from "../../share/redux/reducers/game.reducers";
-
-//fake data
-const username = "Đăng Khoa";
 
 function ListGame() {
     const navigate = useNavigate();
@@ -38,18 +35,21 @@ function ListGame() {
     return (
         <div className={styles.listGameContainer}>
             <div className={styles.header}>
-                <span>Welcome, {username}</span>
+                <span>Welcome, Guest</span>
 
                 <div className={styles.account}>
                     <FaUser />
                 </div>
-                <Link to="/create" style={{ color: 'inherit', textDecoration: 'inherit'}}>
-                <MyButton
-                    color="blue"
-                    text="Create"
-                    size="medium"
-                    onClick={handleCreateButton}
-                />
+                <Link
+                    to="/create"
+                    style={{ color: "inherit", textDecoration: "inherit" }}
+                >
+                    <MyButton
+                        color="blue"
+                        text="Create"
+                        size="medium"
+                        onClick={handleCreateButton}
+                    />
                 </Link>
             </div>
 
